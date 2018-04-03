@@ -1,0 +1,11 @@
+{
+  "name": "blockbreaker",
+  "version": "1.0.0",
+  "description": "Block Breaker game clone",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark N Broadhead",
+  "license": "ISC"
+}
