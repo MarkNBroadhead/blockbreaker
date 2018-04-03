@@ -28,11 +28,7 @@ addBlocks()
 function block(x, y, color) {
     this.x = x
     this.y = y
-    if (color) {
-        this.color = color
-    } else {
-        this.color = "#" + (Math.random() * 16777215).toString(16)
-    }
+    this.color = color ? color : "#" + (Math.random() * 16777215).toString(16) 
     this.draw = function () {
         ctx.beginPath()
         ctx.rect(x, y, blockWidth, blockHeight)
@@ -80,10 +76,11 @@ function update(progress) {
 function addBlocks() {
     var colors = ['blue', 'red', 'yellow']
     console.log("colors number: " + colors.length)
-    for (var i = 1; i < canvas.width / blockWidth; i++) {
-        let nextColor = colors[parseInt(Math.random() * (colors.length))]
-        // state.blocks.push({ x: i * 100, y: 100, color: nextColor })
-        state.blocks.push(new block(i*100, 100, nextColor))
+    for (var row = 1; row <= 6; row++) {
+        for (var col = 0; col < canvas.width / blockWidth; col++) {
+            let nextColor = colors[parseInt(Math.random() * (colors.length))]
+            state.blocks.push(new block(col * 100, row * blockHeight, nextColor))
+        }
     }
 }
 
